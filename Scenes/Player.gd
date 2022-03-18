@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocity = Vector2(0,0);
 const X_SPEED = 250;
-const JUMP_FORCE = -800;
+const JUMP_FORCE = -1000;
 const GRAVITY = 35;
 const LERP_WEIGHT = 0.15;
 

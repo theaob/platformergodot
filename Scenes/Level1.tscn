@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/kenney/Tiles/Yellow tiles/YellowTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/kenney/Tiles/Yellow tiles/Yellow Pass Through.tres" type="TileSet" id=3]
+[ext_resource path="res://Assets/Background/set2_background.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Background/set2_tiles.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 28 )
@@ -58,3 +60,22 @@ drag_margin_left = 0.3
 drag_margin_top = 0.6
 drag_margin_right = 0.3
 editor_draw_limits = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="PurpleSky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1280, 960 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/PurpleSky"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="BoxesNearby" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.7, 0.7 )
+motion_mirroring = Vector2( 1280, 960 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/BoxesNearby"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false

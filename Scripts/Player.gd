@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 var velocity = Vector2(0,0);
+var coins = 0;
+
 const X_SPEED = 250;
 const JUMP_FORCE = -1000;
 const GRAVITY = 35;
@@ -30,6 +32,9 @@ func _physics_process(_delta):
 
 	velocity.x = lerp(velocity.x, 0, LERP_WEIGHT);
 
+
+func add_coin():
+	coins = coins + 1;
 
 func _on_FallZone_body_entered(_body):
 	var _result = get_tree().change_scene("res://Scenes/Level1.tscn");

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Tiles/Yellow tiles/YellowTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,9 +6,7 @@
 [ext_resource path="res://Assets/Background/set2_background.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Background/set2_tiles.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/HUD/coin_gold.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://Scripts/HUD.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 764, 30 )
@@ -21,17 +19,6 @@ extents = Vector2( 64, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 288, 32 )
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0, 0, 0, 0.196078 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="DynamicFont" id=6]
-size = 50
-font_data = ExtResource( 8 )
 
 [node name="Level1" type="Node2D"]
 
@@ -169,43 +156,6 @@ drag_margin_top = 0.6
 drag_margin_right = 0.3
 editor_draw_limits = true
 
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource( 9 )
-
-[node name="Panel" type="Panel" parent="HUD"]
-margin_left = 864.0
-margin_top = 8.0
-margin_right = 1016.0
-margin_bottom = 72.0
-custom_styles/panel = SubResource( 5 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CoinLabel" type="Label" parent="HUD/Panel"]
-margin_left = 64.0
-margin_right = 152.0
-margin_bottom = 64.0
-custom_colors/font_color = Color( 1, 0.701961, 0, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "100"
-align = 1
-valign = 2
-
-[node name="TextureRect" type="TextureRect" parent="HUD/Panel"]
-margin_top = 2.0
-margin_right = 61.0
-margin_bottom = 63.0
-texture = ExtResource( 7 )
+[node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [connection signal="body_entered" from="FallZone" to="Steve" method="_on_FallZone_body_entered"]
-[connection signal="coin_collected" from="coins/coin1" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin2" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin3" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin4" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin5" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin6" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin7" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin8" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin9" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="coins/coin10" to="HUD" method="_on_coin_collected"]

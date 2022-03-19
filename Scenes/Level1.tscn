@@ -7,6 +7,9 @@
 [ext_resource path="res://Assets/Background/set2_tiles.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Coin.tscn" type="PackedScene" id=6]
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 764, 30 )
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 28 )
 
@@ -16,62 +19,22 @@ extents = Vector2( 64, 32 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 288, 32 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 764, 30 )
-
 [node name="Level1" type="Node2D"]
 
-[node name="Tiles One-Way" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
-collision_layer = 2
-collision_mask = 49
-format = 1
-tile_data = PoolIntArray( 0, 4, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 6, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 5, 0, 131079, 5, 0, 131080, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 262144, 5, 0, 262145, 5, 0, 262146, 5, 0, 262147, 5, 0, 262148, 5, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0 )
+[node name="FallZone" type="Area2D" parent="."]
+position = Vector2( 1768, 760 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Tiles One-Way"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
-position = Vector2( 160, 284 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
-position = Vector2( 448, 160 )
-shape = SubResource( 2 )
-one_way_collision = true
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
-position = Vector2( 288, 32 )
-shape = SubResource( 3 )
-one_way_collision = true
-
-[node name="Tiled Solid" type="TileMap" parent="."]
-position = Vector2( 0, 152 )
-tile_set = ExtResource( 1 )
-show_collision = true
-collision_layer = 2
-collision_mask = 49
-format = 1
-tile_data = PoolIntArray( -1114104, 2, 0, -983030, 2, 0, -851960, 2, 0, -720886, 2, 0, -589816, 2, 0, -458742, 2, 0, -327672, 2, 0, -131080, 0, 0, -65544, 0, 0, -8, 0, 0, 65528, 0, 0, 131064, 0, 0, 196600, 0, 0, 262136, 0, 0, 196623, 6, 0, 196626, 4, 0, 196627, 3, 0, 196628, 3, 0, 196629, 3, 0, 196630, 3, 0, 196631, 18, 0, 196633, 19, 0, 196635, 19, 0, 196638, 4, 0, 196639, 3, 0, 196640, 3, 0, 196641, 3, 0, 196642, 18, 0, 327672, 0, 0, 262158, 6, 0, 262159, 15, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 393208, 0, 0, 393209, 12, 0, 393210, 12, 0, 393211, 12, 0, 393212, 12, 0, 393213, 12, 0, 393214, 12, 0, 393215, 12, 0, 327680, 3, 0, 327681, 3, 0, 327682, 3, 0, 327683, 3, 0, 327684, 3, 0, 327685, 3, 0, 327686, 3, 0, 327687, 3, 0, 327688, 3, 0, 327689, 3, 0, 327690, 3, 0, 327691, 3, 0, 327692, 3, 0, 327693, 3, 0, 327694, 15, 0, 327695, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0 )
-
-[node name="Steve" parent="." instance=ExtResource( 2 )]
-position = Vector2( -302, 169 )
-
-[node name="Camera2D" type="Camera2D" parent="Steve"]
-current = true
-limit_left = -445
-limit_bottom = 700
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-drag_margin_left = 0.3
-drag_margin_top = 0.6
-drag_margin_right = 0.3
-editor_draw_limits = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
+shape = SubResource( 4 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="PurpleSky" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 modulate = Color( 0.568627, 0.968627, 0.564706, 1 )
 motion_mirroring = Vector2( 1280, 960 )
 
@@ -110,17 +73,84 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="FallZone" type="Area2D" parent="."]
-position = Vector2( 1768, 760 )
-collision_layer = 4
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Tiles One-Way" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+collision_layer = 2
+collision_mask = 49
+format = 1
+tile_data = PoolIntArray( 0, 4, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 6, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 5, 0, 131079, 5, 0, 131080, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 262144, 5, 0, 262145, 5, 0, 262146, 5, 0, 262147, 5, 0, 262148, 5, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
-shape = SubResource( 4 )
+[node name="StaticBody2D" type="StaticBody2D" parent="Tiles One-Way"]
 
-[node name="Coin" parent="." instance=ExtResource( 6 )]
-position = Vector2( 56, 200 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
+position = Vector2( 160, 284 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
+position = Vector2( 448, 160 )
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Tiles One-Way/StaticBody2D"]
+position = Vector2( 288, 32 )
+shape = SubResource( 3 )
+one_way_collision = true
+
+[node name="Tiled Solid" type="TileMap" parent="."]
+position = Vector2( 0, 152 )
+tile_set = ExtResource( 1 )
+show_collision = true
+collision_layer = 2
+collision_mask = 49
+format = 1
+tile_data = PoolIntArray( -1114104, 2, 0, -983030, 2, 0, -851960, 2, 0, -720886, 2, 0, -589816, 2, 0, -458742, 2, 0, -327672, 2, 0, -131080, 0, 0, -65544, 0, 0, -8, 0, 0, 65528, 0, 0, 131064, 0, 0, 196600, 0, 0, 262136, 0, 0, 196623, 6, 0, 196626, 4, 0, 196627, 3, 0, 196628, 3, 0, 196629, 3, 0, 196630, 3, 0, 196631, 18, 0, 196633, 19, 0, 196635, 19, 0, 196638, 4, 0, 196639, 3, 0, 196640, 3, 0, 196641, 3, 0, 196642, 18, 0, 327672, 0, 0, 262158, 6, 0, 262159, 15, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 393208, 0, 0, 393209, 12, 0, 393210, 12, 0, 393211, 12, 0, 393212, 12, 0, 393213, 12, 0, 393214, 12, 0, 393215, 12, 0, 327680, 3, 0, 327681, 3, 0, 327682, 3, 0, 327683, 3, 0, 327684, 3, 0, 327685, 3, 0, 327686, 3, 0, 327687, 3, 0, 327688, 3, 0, 327689, 3, 0, 327690, 3, 0, 327691, 3, 0, 327692, 3, 0, 327693, 3, 0, 327694, 15, 0, 327695, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0 )
+
+[node name="coins" type="Node" parent="."]
+
+[node name="coin1" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 56, 208 )
+
+[node name="coin2" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 160, 208 )
+
+[node name="coin3" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 264, 208 )
+
+[node name="coin4" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 544, -216 )
+
+[node name="coin5" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 672, -344 )
+
+[node name="coin6" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 544, -472 )
+
+[node name="coin7" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 672, -600 )
+
+[node name="coin8" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 544, -728 )
+
+[node name="coin9" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 672, -856 )
+
+[node name="coin10" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 544, -984 )
+
+[node name="Steve" parent="." instance=ExtResource( 2 )]
+position = Vector2( -302, 169 )
+
+[node name="Camera2D" type="Camera2D" parent="Steve"]
+current = true
+limit_left = -445
+limit_bottom = 700
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.3
+drag_margin_top = 0.6
+drag_margin_right = 0.3
+editor_draw_limits = true
 
 [connection signal="body_entered" from="FallZone" to="Steve" method="_on_FallZone_body_entered"]

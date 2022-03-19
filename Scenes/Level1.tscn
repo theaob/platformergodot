@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/kenney/Tiles/Yellow tiles/YellowTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,9 @@ extents = Vector2( 64, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 288, 32 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 764, 30 )
 
 [node name="Level1" type="Node2D"]
 
@@ -64,6 +67,7 @@ editor_draw_limits = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="PurpleSky" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 modulate = Color( 0.568627, 0.968627, 0.564706, 1 )
 motion_mirroring = Vector2( 1280, 960 )
 
@@ -73,6 +77,7 @@ texture = ExtResource( 4 )
 centered = false
 
 [node name="BoxesFar" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 modulate = Color( 0.521569, 0.0352941, 0, 0.572549 )
 position = Vector2( 0, -500 )
 motion_scale = Vector2( 0.2, 0.2 )
@@ -84,6 +89,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="BoxesMiddle" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 modulate = Color( 0.101961, 0.270588, 0.0196078, 0.572549 )
 position = Vector2( 0, -500 )
 motion_scale = Vector2( 0.4, 0.4 )
@@ -95,6 +101,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="BoxesNearby" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 modulate = Color( 0, 1, 0.203922, 0.737255 )
 position = Vector2( 0, -500 )
 motion_scale = Vector2( 0.7, 0.7 )
@@ -104,3 +111,14 @@ motion_mirroring = Vector2( 1280, 960 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 centered = false
+
+[node name="FallZone" type="Area2D" parent="."]
+position = Vector2( 1768, 760 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="FallZone" to="Steve" method="_on_FallZone_body_entered"]

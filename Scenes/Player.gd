@@ -6,7 +6,7 @@ const JUMP_FORCE = -1000;
 const GRAVITY = 35;
 const LERP_WEIGHT = 0.15;
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("right"):
 		velocity.x = X_SPEED;
 		$AnimatedSprite.play("walk");
@@ -29,3 +29,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP);
 
 	velocity.x = lerp(velocity.x, 0, LERP_WEIGHT);
+
+
+func _on_FallZone_body_entered(_body):
+	get_tree().change_scene("res://Scenes/Level1.tscn");

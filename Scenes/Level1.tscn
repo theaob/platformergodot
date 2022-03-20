@@ -115,8 +115,12 @@ tile_data = PoolIntArray( -1114104, 3, 0, -983030, 3, 0, -851960, 3, 0, -720886,
 [node name="enemies" type="Node" parent="."]
 
 [node name="enemy" parent="enemies" instance=ExtResource( 8 )]
-position = Vector2( 40, 408 )
+position = Vector2( -56, 414 )
 direction = 1
+
+[node name="enemy4" parent="enemies" instance=ExtResource( 8 )]
+position = Vector2( -56, 304 )
+detectsCliffs = false
 
 [node name="enemy2" parent="enemies" instance=ExtResource( 8 )]
 position = Vector2( 104, -32 )

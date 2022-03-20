@@ -5,7 +5,7 @@ export var direction = -1; #-1 left 1 right
 export var detectsCliffs = true;
 
 const GRAVITY = 35;
-const X_SPEED = 50;
+var x_speed = 50;
 const TERMINAL_VELOCITY = 500;
 
 func _ready():
@@ -22,6 +22,12 @@ func _physics_process(_delta):
 		$FloorChecker.position.x = $CollisionShape2D.shape.get_extents().x * direction;
 
 	velocity.y = min(TERMINAL_VELOCITY, velocity.y + GRAVITY);
-	velocity.x = X_SPEED * direction;
+	velocity.x = x_speed * direction;
 	
 	velocity = move_and_slide(velocity, Vector2.UP);
+
+
+func _on_TopChecker_body_entered(body):
+	if not body == self:
+		$AnimatedSprite.play("squashed");
+		x_speed = 0;

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Enemy/EnemySpriteFrames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.5, 11.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20, 3 )
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 16
@@ -25,3 +28,13 @@ shape = SubResource( 1 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 collision_mask = 2
+
+[node name="TopChecker" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
+position = Vector2( -1, -10 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="TopChecker" to="." method="_on_TopChecker_body_entered"]

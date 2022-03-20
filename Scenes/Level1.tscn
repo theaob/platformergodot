@@ -151,7 +151,10 @@ position = Vector2( 40, 408 )
 direction = 1
 
 [node name="enemy2" parent="enemies" instance=ExtResource( 8 )]
-position = Vector2( 89, -56 )
+position = Vector2( 104, -32 )
+
+[node name="enemy3" parent="enemies" instance=ExtResource( 8 )]
+position = Vector2( 480, 104 )
 
 [node name="Steve" parent="." instance=ExtResource( 2 )]
 position = Vector2( -302, 169 )
@@ -171,3 +174,13 @@ editor_draw_limits = true
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [connection signal="body_entered" from="FallZone" to="Steve" method="_on_FallZone_body_entered"]
+[connection signal="coin_collected" from="coins/coin1" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin2" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin3" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin4" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin5" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin6" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin7" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin8" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin9" to="HUD" method="_on_coin_collected"]
+[connection signal="coin_collected" from="coins/coin10" to="HUD" method="_on_coin_collected"]

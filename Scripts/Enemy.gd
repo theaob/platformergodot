@@ -31,3 +31,19 @@ func _on_TopChecker_body_entered(body):
 	if not body == self:
 		$AnimatedSprite.play("squashed");
 		x_speed = 0;
+		set_collision_layer_bit(4, false);
+		set_collision_mask_bit(0, false);
+		$TopChecker.set_collision_layer_bit(4, false);
+		$TopChecker.set_collision_mask_bit(0, false);
+		$SidesChecker.set_collision_layer_bit(4, false);
+		$SidesChecker.set_collision_mask_bit(0, false);
+		$Timer.start();
+
+
+func _on_SidesChecker_body_entered(body):
+	if body.name.matchn("Steve"):
+		print_debug("Side hit ", body.name);
+
+
+func _on_Timer_timeout():
+	queue_free();

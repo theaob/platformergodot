@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Fonts/KiriFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/Sniglet-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/MainMenuButton.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Sound/powerUp12.ogg" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -46,5 +47,9 @@ custom_fonts/font = SubResource( 2 )
 text = "Main Menu"
 flat = true
 script = ExtResource( 3 )
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 
 [connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_MainMenuButton_pressed"]

@@ -36,6 +36,7 @@ func _on_TopChecker_body_entered(body):
 	if not body == self:
 		$SidesChecker/CollisionShape2D.set_deferred("disabled", true);
 		$TopChecker/CollisionShape2D.set_deferred("disabled", true);
+		$SoundSquash.play(0.13);
 		$AnimatedSprite.play("squashed");
 		x_speed = 0;
 		set_collision_layer_bit(4, false);

@@ -28,6 +28,7 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_FORCE;
+		$SoundJump.play();
 		
 	velocity = move_and_slide(velocity, Vector2.UP);
 
@@ -46,9 +47,10 @@ func hurt(var enemy_x_pos):
 		velocity.x = HURT_X_VELOCITY;
 	Input.action_release("left");
 	Input.action_release("right");
+	$SoundHurt.play(0.12);
 
 func _on_FallZone_body_entered(_body):
-	var _result = get_tree().change_scene("res://Scenes/Level1.tscn");
+	get_tree().change_scene("res://Scenes/Menus/GameOver.tscn");
 	
 func _on_HurtTimer_timeout():
 	set_modulate(Color.white);
